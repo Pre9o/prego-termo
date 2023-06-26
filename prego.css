@@ -1,0 +1,88 @@
+body {
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+}
+
+#word-display {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+input {
+  padding: 10px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* styles.css */
+.word-container {
+    margin-bottom: 10px;
+  }
+  
+  .letter-box {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid black;
+  }
+  
+  .green {
+    background-color: green;
+    color: white;
+  }
+  
+  .yellow {
+    background-color: yellow;
+    color: black;
+  }
+  
+  .red {
+    background-color: red;
+    color: white;
+  }
+  
+  .guess {
+    margin-bottom: 10px;
+  }
+
+  /* style.css */
+.letter-box {
+    width: 30px;
+    height: 30px;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+    margin: 2px;
+  }
+  
+  .letter-box.correct {
+    background-color: #00ff00;
+  }
+  
+  .letter-box.incorrect-position {
+    background-color: #ffff00;
+  }
+  
+  .letter-box.incorrect {
+    background-color: #ff0000;
+  }
+  
+  
+  
+  
