@@ -46,22 +46,6 @@ document.addEventListener("keydown", function(event) {
     });
     if (emptyBoxIndex >= 0) {
       letterBoxes[emptyBoxIndex].textContent = letter;
-
-      // Verifique se a letra está correta e aplique a cor apropriada ao quadrado
-      if (randomWord.includes(letter)) {
-        var letterIndex = randomWord.indexOf(letter);
-        if (letterIndex === emptyBoxIndex) {
-          letterBoxes[emptyBoxIndex].classList.add("correct");
-        } 
-        else if (randomWord.includes(letter, letterIndex + 1)) {
-          letterBoxes[emptyBoxIndex].classList.add("correct");
-        }
-        else {
-          letterBoxes[emptyBoxIndex].classList.add("incorrect-position");
-        }
-      } else {
-        letterBoxes[emptyBoxIndex].classList.add("incorrect");
-      }
     }
 
     // Verifique se a palavra está completa
@@ -73,13 +57,44 @@ document.addEventListener("keydown", function(event) {
     if (currentGuess.length === randomWord.length) {
       // Atualize as tentativas apenas se a palavra estiver completa
       attempts++;
+    }
+  }
 
-      // Verifique se a palavra está correta
-      if (currentGuess === randomWord) {
-        resultMessage.textContent = "Palavra correta!";
+  // Verifique se a tecla pressionada é Enter
+  if (event.key === 'Enter') {
+    var wordContainers = document.getElementsByClassName("word-container");
+    var currentWordContainer = wordContainers[attempts - 1]; // Use attempts - 1 porque as tentativas foram atualizadas anteriormente
+    var letterBoxes = currentWordContainer.getElementsByClassName("letter-box");
+
+    // Verifique se a letra está correta e aplique a cor apropriada ao quadrado
+    Array.from(letterBoxes).forEach(function(box, index) {
+      var letter = box.textContent;
+      if (randomWord.includes(letter)) {
+        var letterIndex = randomWord.indexOf(letter);
+        if (letterIndex === index) {
+          box.classList.add("correct");
+        } 
+        else if (randomWord.includes(letter, letterIndex + 1)) {
+          box.classList.add("correct");
+        }
+        else {
+          box.classList.add("incorrect-position");
+        }
       } else {
-        resultMessage.textContent = "Palavra incorreta! Tentativas restantes: " + (maxAttempts - attempts);
+        box.classList.add("incorrect");
       }
+    });
+
+    // Verifique se a palavra está correta
+    var currentGuess = Array.from(letterBoxes)
+      .map(function(box) {
+        return box.textContent;
+      })
+      .join("");
+    if (currentGuess === randomWord) {
+      resultMessage.textContent = "Palavra correta!";
+    } else {
+      resultMessage.textContent = "Palavra incorreta! Tentativas restantes: " + (maxAttempts - attempts);
     }
   }
 });
