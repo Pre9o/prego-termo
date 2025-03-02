@@ -36,8 +36,11 @@ button {
 
 /* styles.css */
 .word-container {
-    margin-bottom: 10px;
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 10px;
+}
   
   .letter-box {
     display: inline-block;
@@ -50,41 +53,26 @@ button {
     border: 1px solid black;
   }
   
-  .green {
-    background-color: green;
-    color: white;
-  }
-  
-  .yellow {
-    background-color: yellow;
-    color: black;
-  }
-  
-  .red {
-    background-color: red;
-    color: white;
-  }
-  
-  .guess {
-    margin-bottom: 10px;
-  }
 
   /* style.css */
 .letter-box {
-    width: 50px;
-    height: 50px;
-    background-color: #6E5C62;
+    width: 60px;  
+    height: 60px;
+    background-color: #615458;
     border: 4px solid #4C4347;
-    color: #fff;
-    display: inline-block;
+    color: #FAFAFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     line-height: 40px;
     margin: 2px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 34px;
-    border-radius: 10px;
+    font-family:'mitr', sans-serif;
+    font-size: 40px;
+    border-radius: 10%;
     text-transform: uppercase;
   }
+
   
   .letter-box.correct {
     background-color: #3AA394;
@@ -95,9 +83,12 @@ button {
   }
   
   .letter-box.incorrect {
-    background-color: #312A2C;
+    background-color: #312a2c;
   }
   
+  .letter-box.incomplete {
+    background-color: #504a4b;
+  }
   
   
   
