@@ -19,7 +19,7 @@ h1 {
 
 #word-display {
   font-size: 24px;
-  margin: 20px 0;
+  margin: 120px 0;
 }
 
 input {
@@ -60,6 +60,16 @@ button {
   border: 4px solid #4C4347;
 }
 
+.current-letter::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 6px;
+  background-color: #4C4347; /* Cor da linha */
+  position: absolute;
+  bottom: 0px; /* Ajuste conforme necessário */
+}
+
   /* style.css */
 .letter-box {
     width: 50px;  
@@ -77,6 +87,7 @@ button {
     font-size: 40px;
     border-radius: 10%;
     text-transform: uppercase;
+    position:relative;
   }
 
   
