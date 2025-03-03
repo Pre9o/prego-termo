@@ -93,18 +93,22 @@ button {
   
   .letter-box.correct {
     background-color: #3AA394;
+    border: 4px solid #3AA394;
   }
   
   .letter-box.incorrect-position {
     background-color: #D3AD69;
+    border: 4px solid #D3AD69;
   }
   
   .letter-box.incorrect {
     background-color: #312a2c;
+    border: 4px solid #312a2c;
   }
   
   .letter-box.incomplete {
     background-color: #504a4b;
+    border: 4px solid #504a4b;
   }
   
   
