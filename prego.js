@@ -13,6 +13,9 @@ var letterBoxes = document.getElementById("letter-boxes");
 for (var i = 0; i < maxAttempts; i++) {
   var wordContainer = document.createElement("div");
   wordContainer.className = "word-container";
+  if (i === attempts) {
+    wordContainer.classList.add("current-attempt");
+  }
   for (var j = 0; j < randomWord.length; j++) {
     var letterBox = document.createElement("div");
     letterBox.className = "letter-box";
@@ -25,7 +28,6 @@ document.addEventListener("keydown", function(event) {
   var key = event.key.toLowerCase();
 
   if (attempts >= maxAttempts) {
-    document.getElementById("result-message").textContent = "Você atingiu o limite máximo de tentativas!";
     return;
   }
 
@@ -84,6 +86,10 @@ document.addEventListener("keydown", function(event) {
 
       if (currentGuess != randomWord) {
         attempts++;
+        if (attempts < maxAttempts) {
+          wordContainers[attempts - 1].classList.remove("current-attempt");
+          wordContainers[attempts].classList.add("current-attempt");
+        }
       }
     }
   }
